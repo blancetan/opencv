@@ -8,6 +8,18 @@
  @Software: PyCharm
  
 """
+'''
+一, image operate
+1. imread()
+2. imshow()
+3. imwrite()
+二，video  operate
+1. VideoCapture()
+2. imshow()
+3. waitkey()
+4. destroyAllWindows()
+
+'''
 import cv2 as cv
 import numpy as np
 import os
@@ -20,9 +32,12 @@ def video_demo():
         ret, frame = caputer.read()
         frame = cv.flip(frame, 1)
         cv.imshow("video", frame)
+        cv.imwrite("demo_results/demo.avi", frame)
         c = cv.waitKey(50)
         if c == 27:
             break
+        caputer.release()
+        cv.destroyAllWindows()
 
 def get_image_info(image):
     print(type(image))
@@ -33,8 +48,9 @@ def get_image_info(image):
     print(pixelData)
 
 
+
 if __name__ == '__main__':
-    print("====================opencv demo==================")
+    print("====================opencv image_demo==================")
     src = cv.imread(os.path.join(IMAGE_BASE_DIR, 'example.PNG'))
     cv.namedWindow("input image", cv.WINDOW_AUTOSIZE)
     cv.imshow("input image", src)
