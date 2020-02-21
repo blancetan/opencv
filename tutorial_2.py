@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#_*_ coding: utf-8 _*_
+# _*_ coding: utf-8 _*_
 
 """
  @DateTime: 20/2/2020 9:09
@@ -10,11 +10,11 @@
 """
 """
 1. VideoWrite()
-
 """
 import math
 import cv2 as cv
 import sys
+
 
 def main():
     cap = cv.VideoCapture(0)
@@ -31,7 +31,7 @@ def main():
             output.write(frame)
             cv.imshow("video_record", frame)
             stop_t = ((cv.getTickCount() - start_t) / cv.getTickFrequency()) * 1000
-            key = cv.waitKey(max(2, 40 - int(math.ceil(stop_t)))) & 0xFF
+            key = cv.waitKey(max(2, 40 - int(math.ceil(stop_t))))
             if key == ord('q'):
                 print('exit recording!')
                 break
@@ -41,7 +41,6 @@ def main():
     output.release()
     cv.destroyAllWindows()
 
+
 if __name__ == '__main__':
     main()
-
-
