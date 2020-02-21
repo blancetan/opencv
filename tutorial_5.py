@@ -44,6 +44,7 @@ def contrast_brightness_demo(image, c, b):
     blank = np.zeros((h, w, ch), image.dtype)
     dst = cv.addWeighted(image, c, blank, 1-c, b)
     cv.imshow('co-br-demo', dst)
+    cv.imwrite('machine learning.png', dst)
 
 def others_demo(m1, m2):
     M1, dev1 = cv.meanStdDev(m1)
@@ -63,14 +64,19 @@ def others_demo(m1, m2):
 
 if __name__ == '__main__':
     print('=================hello OpenCv================')
-    image1 = cv.imread('image/linuxlogo.jpg')
-    image2 = cv.imread('image/windowlogo.jpg')
-    cv.imshow('linuxlogo', image1)
+    image1 = cv.imread('image/machine learning.png')
+    # image2 = cv.imread('image/windowlogo.jpg')
+    # cv.namedWindow('linuxlogo', cv.WINDOW_NORMAL)
+    # cv.namedWindow('windowlogo', cv.WINDOW_NORMAL)
+    # cv.namedWindow('linuxlogo', cv.WINDOW_AUTOSIZE)
+    # cv.namedWindow('windowlogo', cv.WINDOW_AUTOSIZE)
+    # cv.imshow('linuxlogo', image1)
     # cv.imshow('windowlogo', image2)
     # print(image1.shape)
     # print(image2.shape)
     # contrast_brightness_demo(image1, 0.7, 0)
-    contrast_brightness_demo(image1, 0.9, 0)
+    contrast_brightness_demo(image1, 0.7, 0)
+
     cv.waitKey(0)
     cv.destroyAllWindows()
 
