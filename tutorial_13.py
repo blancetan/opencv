@@ -40,7 +40,7 @@ def  template_demo():
         print(br)
         cv.rectangle(target, t1, br, (0, 0, 255), 2)
         cv.imshow(''.join(('match-', np.str(md))), target)
-        cv.putText(target, 'height:{}, width:{}'.format(h, w), t1, font, 1.0, (0, 0, 255), 1)
+        cv.putText(target, 'height:{0}, width:{1}'.format(h, w), t1, font, 1.0, (0, 0, 255), 1)
         print(result)
 
 
